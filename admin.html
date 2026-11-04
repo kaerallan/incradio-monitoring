@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="light dark">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Admin | Locale Proofs</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="wrap">
+    <header class="top">
+      <div class="brand"><span class="brand-dot"></span>Locale Proofs admin</div>
+      <a href="stats.html">Public results →</a>
+    </header>
+
+    <div id="notice" class="banner warn hidden"></div>
+
+    <!-- Sign in -->
+    <section id="login" class="card hidden" style="max-width:460px">
+      <form id="loginForm">
+        <label for="pass">Admin passcode</label>
+        <input id="pass" type="password" autocomplete="current-password" required>
+        <button class="primary" type="submit">Open admin</button>
+      </form>
+    </section>
+
+    <div id="dash" class="hidden">
+      <h1>This week</h1>
+      <p class="sub"><span id="roundLine"></span> <button id="logout" class="link" type="button">Sign out</button></p>
+
+      <div class="admin-grid">
+        <section class="card">
+          <h2>Current round</h2>
+          <dl class="kv">
+            <dt>Title</dt><dd id="curTitle"></dd>
+            <dt>Link</dt><dd><a id="curLink" target="_blank" rel="noopener"></a></dd>
+            <dt>Started</dt><dd id="curStarted"></dd>
+            <dt>Counted</dt><dd id="curCounted"></dd>
+            <dt>Rejected</dt><dd id="curRejected"></dd>
+          </dl>
+          <p class="small" id="driveLinks"></p>
+        </section>
+
+        <section class="card">
+          <h2>Change the link</h2>
+          <form id="linkForm">
+            <div class="field">
+              <label for="linkUrl">YouTube link (live or video)</label>
+              <input id="linkUrl" type="url" placeholder="https://www.youtube.com/watch?v=…" required>
+            </div>
+            <div class="field">
+              <label for="linkTitle">Title shown to viewers</label>
+              <input id="linkTitle" type="text" maxlength="120" placeholder="e.g. INC Radio, Nov 8">
+            </div>
+            <div class="btn-row">
+              <button class="primary" type="submit" id="saveLink">Save link (keep counts)</button>
+              <button class="primary danger" type="button" id="newRound">Start new round (reset to 0)</button>
+            </div>
+            <p class="small">"Save link" fixes or swaps the link and keeps this week's counts, for example when the live becomes a video. "Start new round" sets the counts back to zero. Older rounds stay saved and can still be exported.</p>
+          </form>
+        </section>
+
+        <section class="card">
+          <h2>Export</h2>
+          <div class="field">
+            <label for="exportRound">Round</label>
+            <select id="exportRound"></select>
+          </div>
+          <div class="btn-row">
+            <button class="primary" type="button" id="exportZip">Download stats + screenshots (.zip)</button>
+            <button class="secondary" type="button" id="exportCsv">Download stats only (.csv)</button>
+          </div>
+          <div id="exportStatus" class="status"></div>
+        </section>
+
+        <section class="card">
+          <h2>By locale</h2>
+          <div class="table-wrap">
+            <table class="table">
+              <thead><tr><th>Locale</th><th class="n">Counted</th><th class="n">Rejected</th></tr></thead>
+              <tbody id="townRows"></tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+
+      <section class="card" style="margin-top:16px">
+        <h2>Review screenshots</h2>
+        <div class="filters">
+          <select id="fRound" aria-label="Round"></select>
+          <select id="fTown" aria-label="Locale"><option value="">All locales</option></select>
+          <select id="fStatus" aria-label="Status">
+            <option value="">Counted + rejected</option>
+            <option value="counted">Counted only</option>
+            <option value="rejected">Rejected only</option>
+          </select>
+        </div>
+        <div id="proofCount" class="small"></div>
+        <div id="proofs" class="proofs"></div>
+        <button id="more" class="secondary hidden" type="button">Show more</button>
+      </section>
+    </div>
+
+    <p id="loading" class="sub">Loading…</p>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <script src="config.js"></script>
+  <script src="common.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>

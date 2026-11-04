@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="light dark">
+  <title>Results | Locale Proofs</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="wrap">
+    <header class="top">
+      <div class="brand"><span class="brand-dot"></span>Locale Proofs</div>
+      <a href="index.html">← Send your proof</a>
+    </header>
+
+    <div id="notice" class="banner warn hidden"></div>
+
+    <h1>Proofs by locale</h1>
+    <p id="rule" class="sub"></p>
+
+    <div class="kpis">
+      <div class="kpi"><div class="n" id="kTotal">…</div><div class="l">Proofs this week</div></div>
+      <div class="kpi"><div class="n" id="kTowns">…</div><div class="l">Locales with proofs</div></div>
+      <div class="kpi"><div class="n" id="kTop">…</div><div class="l">Top locale</div></div>
+    </div>
+
+    <section class="card">
+      <ul id="rows" class="rows"><li class="empty">Loading…</li></ul>
+    </section>
+
+    <div class="meta">
+      <span id="updated"></span>
+      <span>Refreshes automatically</span>
+    </div>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="common.js"></script>
+  <script src="stats.js"></script>
+</body>
+</html>

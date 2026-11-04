@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="light dark">
+  <title>Locale Proofs</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="wrap">
+    <header class="top">
+      <div class="brand"><span class="brand-dot"></span>Locale Proofs</div>
+      <a href="stats.html">See locale results →</a>
+    </header>
+
+    <h1 id="title">Like, comment, send your proof</h1>
+    <p id="subtitle" class="sub"></p>
+
+    <div id="notice" class="banner warn hidden"></div>
+
+    <!-- Step 1: choose locale -->
+    <section id="stepTown" class="card hidden">
+      <form id="townForm">
+        <label for="townSelect">Where are you from?</label>
+        <select id="townSelect" required>
+          <option value="" disabled selected>Choose your locale</option>
+        </select>
+        <div id="recentWrap" class="recent hidden">
+          <span class="recent-label">Recent:</span>
+          <span id="recentList" class="recent-list"></span>
+        </div>
+        <button id="townContinue" class="primary" type="submit" disabled>Continue</button>
+      </form>
+    </section>
+
+    <!-- Step 2: like + comment on YouTube, then send the screenshot -->
+    <section id="stepProof" class="hidden">
+      <div class="card">
+        <div class="town-line">
+          <span>Sending for <strong id="townName"></strong></span>
+          <button id="changeTown" class="link" type="button">change</button>
+        </div>
+        <div class="episode">
+          <a id="ytThumbLink" class="thumb" target="_blank" rel="noopener">
+            <img id="ytThumb" alt="" loading="lazy">
+            <span class="play" aria-hidden="true">▶</span>
+          </a>
+          <div class="episode-text">
+            <div class="episode-label">This week</div>
+            <div id="episodeTitle" class="episode-title"></div>
+          </div>
+        </div>
+        <a id="ytLink" class="primary btn" target="_blank" rel="noopener">Open on YouTube</a>
+        <p class="hint">Like 👍 and comment there, take a screenshot, then come back to this page.</p>
+      </div>
+
+      <div id="uploadCard" class="card">
+        <label for="fileInput">Your screenshot</label>
+        <label class="drop" id="dropZone">
+          <input id="fileInput" type="file" accept="image/*">
+          <span id="dropText">Tap to choose your screenshot</span>
+          <img id="preview" class="preview hidden" alt="Your screenshot">
+        </label>
+        <button id="sendBtn" class="primary" type="button" disabled>Send proof</button>
+        <div id="status" class="status" role="status" aria-live="polite"></div>
+      </div>
+
+      <div id="doneCard" class="card hidden">
+        <div class="done-big">✓</div>
+        <div id="doneText" class="done-text"></div>
+        <p class="hint">Only one proof per phone each week. Thank you for supporting the broadcast!</p>
+        <a class="secondary btn" href="stats.html">See locale results</a>
+      </div>
+    </section>
+
+    <!-- How to -->
+    <section id="howTo" class="card howto hidden" aria-labelledby="howToTitle">
+      <h2 id="howToTitle">How to send your proof</h2>
+      <ol>
+        <li><strong>Choose your locale.</strong></li>
+        <li><strong>Tap "Open on YouTube".</strong> Press <strong>Like 👍</strong> and leave a <strong>comment</strong>. While it's live, comment in the live chat. After the broadcast, comment under the video.</li>
+        <li><strong>Take a screenshot</strong> that shows your comment with your YouTube name. If you can, show the Like button turned on too.</li>
+        <li><strong>Come back here</strong> and send the screenshot.</li>
+        <li><strong>One proof per phone each week.</strong> Each family member with their own phone can send their own.</li>
+      </ol>
+    </section>
+
+    <p id="loading" class="sub">Loading…</p>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="common.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
