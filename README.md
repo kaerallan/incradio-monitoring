@@ -40,8 +40,9 @@ Open `admin.html` and enter the passcode.
 1. Create a Google Sheet, then Extensions → Apps Script.
 2. Paste `apps-script/Code.gs`. In Project Settings, tick "Show appsscript.json in editor" and
    paste `apps-script/appsscript.json`.
-3. Run `setup` once and allow the permissions. It only asks for this Sheet and for the Drive files
-   it creates itself.
+3. Run `setup` once and allow the permissions (tick every box). It asks for Google Sheets and for
+   Google Drive. Apps Script's DriveApp needs full Drive access to make the screenshots folder,
+   but the code only ever touches the Sheet and the "Locale Proofs screenshots" folder it creates.
 4. Project Settings → Script properties → add `ADMIN_PASSCODE` with a strong passcode. Give it
    only to the admin.
 5. Deploy → New deployment → Web app → Execute as: Me, Who has access: Anyone. Copy the `/exec` URL
